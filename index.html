@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manipulation</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+            text-align: center;
+            
+            margin-top: 50px auto;
+        }
+        
+
+        
+        
+        .input-box{
+            width: 250px;
+            margin: 10px auto;
+            border-radius: 3px;
+            box-shadow: 0cap;
+            border-color: brown;
+        }
+        .input-box:hover{
+            transition: 1s;
+            transform: scale(1.1);
+
+        }
+        .heading{
+            text-align: center;
+        }
+        .btn{
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+            margin: 30px;
+            color:white;
+            background-color: black;
+        }
+        .result{
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+
+        }
+        .text-container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .input-text{
+            width: 300px;
+            height: 200px;
+            border-radius: 4px;
+            border-color: blue;
+
+
+        }
+        .input-text:hover{
+            transition: 1s;
+            transform: scale(1.1);
+
+        }
+        .match-result{
+            text-align: center;
+        }
+        
+        
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Sum Of two numbers</h1>
+
+        <input type="text" class="input-box" id="input-num1" >
+
+        <input type="text" class="input-box" id="input-num2" >
+
+        <p class="result" id="text-result"></p>
+
+        <button type="button" class="btn" onclick=" calsum()">Calculator</button>
+
+        <button type="button" class="btn" onclick=" reset()">Reset</button>
+
+
+
+    </div>
+    <div class="container-string">
+        <h1 class="heading">string compartor</h1><br/>
+        <div class="text-container">
+            <input type="text" class="input-text" id="input1" onkeyup="compareText()">
+            <input type="text" class="input-text" id="input2"  onkeyup="compareText()">
+
+
+        </div>
+        <p class="match-result" id="match-text"></p>
+    </div>
+    <script>
+        function calsum()
+        {
+            const num1Element=document.getElementById("input-num1")
+
+            const num2Element=document.getElementById("input-num2")
+            
+
+
+            const sum = parseInt(num1Element.value) +parseInt(num2Element.value)
+
+            const resultElement = document.getElementById("text-result")
+
+            resultElement.innerText = `sum: ${sum}`
+
+        }
+        function reset(){
+            const num1Element=document.getElementById("input-num1")
+            num1Element.value =""
+
+            const num2Element=document.getElementById("input-num2")
+            num2Element.value =""
+
+
+            const resultElement = document.getElementById("text-result")
+            resultElement.innerText =""
+
+
+           
+        }
+    </script>
+    
+    
+    <script>
+        function compareText (){
+            const input1Element = document.getElementById("input1")
+            const input2Element = document.getElementById("input2")
+            const resultElement = document.getElementById("text-result")
+            if(input1Element.value===input2Element.value){
+                resultElement.innerText = "Matached!!!"
+            }
+            else{
+                resultElement.innerText = "Not Matched!!!!"
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
